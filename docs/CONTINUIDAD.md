@@ -85,3 +85,11 @@ La tarea siguiente pasa a ser **revisar los paquetes de demo y documentación de
 - No se han modificado `app.js`, `data.js`, `sw.js`, datos reales, Supabase ni el hosting. No se ha autorizado merge ni despliegue.
 
 **Siguiente tarea independiente:** revisar históricamente la exposición de datos y artefactos existentes antes de proponer publicación; después, con una propuesta de hosting autorizado, evaluar autenticación y revocación individuales. No incorporar fichajes reales al repositorio público. Mantener aparte el PR #1 de privacidad y la rama `fix/jornada-empresa-manifest-20261026` hasta revisión. Respetar prioridad global de VISURA AUTO-DEV.
+
+## 9. Ampliación de auditoría histórica (26/10/2026)
+
+PR #1 permanece **abierto en borrador**, HEAD `1b6d181ff6547cf6f72734283773433c79a611c8`. Su documentación de seguridad se amplió con la revisión de los **5 commits visibles de `main`**: `data.js` se incorpora solo en el último y las listas de cambios no contenían extensiones habituales de documentos de personal; los parches de texto accesibles no mostraron patrones sencillos de correo/secretos. La ausencia de hallazgos no prueba que nunca haya habido exposición.
+
+La API de GitHub indica `has_pages: true`, **pero no se verificó la URL ni el estado o contenido de publicación**. Por precaución no asumir privacidad. El PR no toca ficheros ejecutables de la PWA ni altera `data.js`. Sin CI demostrado, sin fusión, sin despliegue y sin datos laborales reales.
+
+**Siguiente paso seguro:** solicitar o resolver por fuentes verificadas la configuración real de alojamiento de la demo, y solo después diseñar acceso empresarial privado. Antes de modificar otras ramas revalidar HEAD y evitar duplicados con la corrección aislada del manifiesto.

@@ -63,3 +63,11 @@
 Antes de comenzar cada tarea: comprobar HEAD remoto, ramas, PR, diferencias, archivos de continuidad y cambios paralelos. Mantener un solo escritor por rama o fichero. Para cada hito registrar SHA y pruebas realmente ejecutadas; no deducir éxito del despliegue a partir de tests. No realizar `merge`, `push --force`, borrados, despliegues ni cambios de datos reales sin autorización.
 
 **Al reanudar desde otro chat:** «Continuamos CONTROL HORARIO VACACIONES BAJAS, repo `josegude-ux/CONTROLHORARIOVACACIONESBAJAS`. Leer `docs/CONTINUIDAD.md` en la rama documental más reciente, contrastar el HEAD con `main` y verificar datos demostrativos antes de programar. No confundir con `mi-jornada` ni con el libro Control Horario Excel. Mantener la prioridad general de VISURA AUTO-DEV y trabajar sin solapamientos».
+
+## 7. Hito posterior de corrección aislada (2026-10-26)
+
+Se corrigió la identidad heredada del **`manifest.json` legado** en la rama independiente `fix/jornada-empresa-manifest-20261026`, commit `fc5d22714be771b375d40ee9944ba038b904e979`. La identidad pasa de `Mi Bowling · Analítica` a `Control Jornada Empresa`. Se mantuvieron los iconos existentes y se igualaron nombre, inicio, ámbito, visualización y colores con el manifiesto `manifest.webmanifest` realmente enlazado por `index.html`.
+
+**Verificaciones realizadas:** JSON válido; coincidencia de campos comunes con `manifest.webmanifest`; `index.html` sigue apuntando al manifiesto operativo; commit de corrección afecta exclusivamente a `manifest.json`; `main` conserva intacto su SHA anterior. **Sin merge, despliegue, actualización en iPhone ni cambio de versión.**
+
+La tarea siguiente pasa a ser **revisar los paquetes de demo y documentación de privacidad, comprobar que ninguna vía de publicación expone datos laborales reales y validar posteriormente el flujo de actualización en entorno de prueba**. Antes de integrar, volver a inspeccionar HEAD y si aparecieron cambios ajenos.

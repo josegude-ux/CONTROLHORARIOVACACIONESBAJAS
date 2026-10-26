@@ -21,11 +21,12 @@ Desde la raíz del repositorio, con Python 3, ejecutar:
 
 ```sh
 python scripts/verificar_demo_publica.py
+python -m unittest discover -s tests -v
 ```
 
 El script solo lee `data.js` y devuelve código `0` si coincide con la **plantilla ficticia estricta** auditada. Rechaza nombres diferentes, datos de fichajes/calendario, campos no esperados, duplicados JSON, saldos no nulos y otros cambios de esquema. Rechaza por defecto los futuros cambios de estructura hasta que se revisen de forma consciente. **No elimina archivos ni modifica datos.**
 
-**Pruebas de desarrollo del validador:** sintéticas locales: demo válida, nombre cambiado, registro de fichaje, marca de calendario, campo extra y clave JSON duplicada. Las cinco variantes indebidas fueron rechazadas. La comprobación del `data.js` remoto se hizo adicionalmente por inspección estructural del JSON, no ejecutando el programa Python descargado del propio repositorio. No existe CI remoto incorporado a este hito.
+**Pruebas de desarrollo del validador:** se añadió `tests/test_verificar_demo_publica.py` y se ejecutaron **19 pruebas sintéticas** en un entorno Python aislado. Todas finalizaron correctamente. Incluyen un caso válido y rechazos de cambios en nombres, IDs, estado del empleado, saldos, fechas, fichajes, marcas, campos extras, duplicados JSON, JavaScript adjunto, datos excesivamente largos, cambio de configuración y valores JSON no finitos. Además se ejecutó `py_compile` del validador y sus pruebas, y el validador contra una **plantilla sintética reconstruida** que coincide con los campos esperados. El `data.js` remoto se contrastó estructuralmente mediante lectura del contenido; no se ha ejecutado aquí el código desde un checkout remoto completo ni en CI. **Ninguna de estas comprobaciones equivale a protección automática de una publicación:** un operador debe ejecutarlas antes de cada despliegue.
 
 ## Reglas obligatorias antes de distribuir
 

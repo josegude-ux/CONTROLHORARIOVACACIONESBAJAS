@@ -93,3 +93,15 @@ PR #1 permanece **abierto en borrador**, HEAD `1b6d181ff6547cf6f72734283773433c7
 La API de GitHub indica `has_pages: true`, **pero no se verificó la URL ni el estado o contenido de publicación**. Por precaución no asumir privacidad. El PR no toca ficheros ejecutables de la PWA ni altera `data.js`. Sin CI demostrado, sin fusión, sin despliegue y sin datos laborales reales.
 
 **Siguiente paso seguro:** solicitar o resolver por fuentes verificadas la configuración real de alojamiento de la demo, y solo después diseñar acceso empresarial privado. Antes de modificar otras ramas revalidar HEAD y evitar duplicados con la corrección aislada del manifiesto.
+
+## 10. Acceso privado y pruebas ampliadas (2026-10-26)
+
+**Estado real comprobado antes de avanzar:** `main` conserva HEAD `7e119417cd8db948d9a8ce239691612de68de042`; PR #1 de auditoría continúa abierta y en borrador, sin fusión.
+
+**Avance en PR #1:** se incorporan `tests/test_verificar_demo_publica.py` (19 pruebas sintéticas, ejecutadas localmente: **19/19 OK**) y `docs/ARQUITECTURA_PRIVADA_CONTROL_JORNADA.md`, junto con un validador más estricto de la plantilla de empleados ficticios, configuración e identificadores, y rechazo de constantes no JSON (`NaN`, `Infinity`). Se verificó compilación Python de la copia local y una ejecución exitosa con fixture ficticia; **sin CI remoto verificado**. PR #1 no modifica `app.js`, `data.js`, `sw.js`, `index.html`, ni el despliegue.
+
+**Observaciones del código `main`:** `index.html` carga `data.js` estático; `app.js` contiene `persist(){}` (no almacenamiento automático), exportación de JSON/CSV, interfaz global `window.CJBridge.setData` y procesamiento PDF experimental local; `sw.js` cachea `data.js`. Todo ello impide afirmar autenticación por empleado o privacidad en una instalación pública, incluso con HTTPS. No se ha verificado un sitio GitHub Pages accesible; la API no permitía consultar su configuración y el URL supuesto no resultó verificable.
+
+**Opciones documentadas, aún no elegidas:** (A) piloto administrativo local, sin compartición multiusuario; (B) sistema privado multiusuario con identidad individual, permisos y auditoría en backend, datos por empleado, revocación y medidas sobre caché/exportaciones. No usar credenciales, BD, Supabase ni datos de VISURA por mera conveniencia: es un producto diferente.
+
+**Siguiente tarea autorizable y sin solapamiento:** revisar PR #1 y su evidencia de pruebas; confirmar la modalidad administrativa o multiusuario y la infraestructura de alojamiento empresarial autorizada, antes de programar backend, desplegar o insertar datos reales. Prioridad global EXCELL: VISURA AUTO-DEV; mantener este trabajo documental aislado.

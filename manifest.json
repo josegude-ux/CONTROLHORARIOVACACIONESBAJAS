@@ -1,1 +1,29 @@
-{"name":"Mi Bowling · Analítica","short_name":"Mi Bowling","description":"Entrenamientos, competiciones, bolas, pistas y estadísticas independientes","id":"./index.html","start_url":"./index.html","display":"standalone","scope":"./","background_color":"#f3f8fb","theme_color":"#f3f8fb","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"},{"src":"icon-192.png","sizes":"192x192","type":"image/png"},{"src":"icon-512.png","sizes":"512x512","type":"image/png"}]}
+{
+  "name": "Control Jornada Empresa",
+  "short_name": "Control Jornada",
+  "description": "Consulta empresarial de jornada, vacaciones y bajas con revisión manual de fichajes PDF. Datos importados sin cálculos oficiales propios.",
+  "id": "./index.html",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "scope": "./",
+  "background_color": "#ffffff",
+  "theme_color": "#15395d",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

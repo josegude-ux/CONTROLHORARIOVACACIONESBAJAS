@@ -71,3 +71,17 @@ Se corrigió la identidad heredada del **`manifest.json` legado** en la rama ind
 **Verificaciones realizadas:** JSON válido; coincidencia de campos comunes con `manifest.webmanifest`; `index.html` sigue apuntando al manifiesto operativo; commit de corrección afecta exclusivamente a `manifest.json`; `main` conserva intacto su SHA anterior. **Sin merge, despliegue, actualización en iPhone ni cambio de versión.**
 
 La tarea siguiente pasa a ser **revisar los paquetes de demo y documentación de privacidad, comprobar que ninguna vía de publicación expone datos laborales reales y validar posteriormente el flujo de actualización en entorno de prueba**. Antes de integrar, volver a inspeccionar HEAD y si aparecieron cambios ajenos.
+
+## 8. Auditoría preventiva de demo pública (2026-10-26)
+
+**PR en borrador, sin fusionar:** https://github.com/josegude-ux/CONTROLHORARIOVACACIONESBAJAS/pull/1
+
+- Rama: `audit/jornada-demo-privacidad-20261026`, HEAD remoto `f8aa65c78e4a26e1913277fe65bc8d7ee04a3018` al comprobar.
+- Destino `main`; estado: **abierta, borrador, no fusionada**.
+- Archivos afectados, verificados en PR: `README.md`, `LEEME.txt`, `LEEME_GITHUB.txt`, `LEEME_MOVIL.txt`, `docs/SEGURIDAD_DEMO_PUBLICA.md`, `scripts/verificar_demo_publica.py`.
+- `data.js` de `main` analizado: 12 empleados ficticios con identificador/nombre secuencial; cero fichajes, calendario, festivos o auditoría. La revisión de archivos de texto en la raíz no encontró patrones comunes de tokens/claves ni identificadores nacionales. **No prueba que no haya datos personales en archivos no revisados, commits históricos, otros artefactos o hosting.**
+- Validador: Python 3, solo lee `data.js`, comprueba el JSON y restringe estrictamente la plantilla ficticia. Probado con `py_compile` y seis fixtures sintéticos (uno aceptado, cinco rechazados). Reglas contrastadas estructuralmente con `data.js` del repo. El programa Python NO se ha ejecutado dentro de CI ni en un checkout remoto completo.
+- CI: consulta de estados heredados del commit `f8aa65c...` devolvió **cero estados**; no interpretar la ausencia como éxito.
+- No se han modificado `app.js`, `data.js`, `sw.js`, datos reales, Supabase ni el hosting. No se ha autorizado merge ni despliegue.
+
+**Siguiente tarea independiente:** revisar históricamente la exposición de datos y artefactos existentes antes de proponer publicación; después, con una propuesta de hosting autorizado, evaluar autenticación y revocación individuales. No incorporar fichajes reales al repositorio público. Mantener aparte el PR #1 de privacidad y la rama `fix/jornada-empresa-manifest-20261026` hasta revisión. Respetar prioridad global de VISURA AUTO-DEV.

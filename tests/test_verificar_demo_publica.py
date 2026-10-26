@@ -19,7 +19,7 @@ def demo():
         "version": 1,
         "importedFrom": "Datos de demostracion ficticios",
         "employees": [
-            {"id": str(i), "name": f"Empleado de prueba {i:02d}", "status": "ACTIVO",
+            {"id": str(i), "name": f"Empleado de prueba {i:02d}", "status": "BAJA" if i == 10 else "ACTIVO",
              "start": None, "end": None, **{field: 0 for field in ZERO_FIELDS}}
             for i in range(1, 13)
         ],
@@ -97,6 +97,18 @@ class TestPublicDemoGuard(unittest.TestCase):
 
     def test_rejects_oversized_data(self):
         self.run_guard(self.js(demo()) + (" " * 100001), 1)
+
+    def test_rejects_changed_allowed_status(self):
+        d = demo(); d["employees"][0]["status"] = "BAJA"
+        self.run_guard(self.js(d), 1)
+
+    def test_rejects_changed_settings(self):
+        d = demo(); d["settings"]["overtimeFactor"] = 3.5
+        self.run_guard(self.js(d), 1)
+
+    def test_rejects_nonfinite_json_number(self):
+        source = self.js(demo()).replace('"workdayHours": 8', '"workdayHours": NaN', 1)
+        self.run_guard(source, 1)
 
     def test_rejects_invalid_status(self):
         d = demo(); d["employees"][0]["status"] = "ADMINISTRADOR"

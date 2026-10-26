@@ -43,3 +43,11 @@ El script solo lee `data.js` y devuelve código `0` si coincide con la **plantil
 - Validar en iPhone físico las actualizaciones PWA y las posibles cachés de versiones anteriores, antes de uso laboral.
 - Realizar pruebas del extractor PDF con ejemplos sintéticos representativos.
 - La corrección aislada del manifiesto legado está en `fix/jornada-empresa-manifest-20261026`, todavía sin integrar.
+
+## Revisión adicional del historial accesible (26/10/2026)
+
+Se inspeccionaron los **5 commits de `main`** devueltos por GitHub y sus listas de archivos modificados. Solo el commit `7e119417cd8db948d9a8ce239691612de68de042` añade `data.js`, con la plantilla ficticia descrita. En esas listas no se observaron documentos con extensiones habituales de Excel, PDF, CSV, ZIP o claves privadas. La búsqueda básica de patrones de correo, tokens y encabezados de claves privadas en los parches de texto accesibles no arrojó coincidencias.
+
+**Limitación importante:** no se han analizado blobs binarios, referencias borradas no listadas, otros repositorios, copias descargadas ni artefactos ajenos al árbol Git. La ausencia de coincidencias no garantiza privacidad histórica. El historial público, si hubiera contenido sensible, no se sanea borrando el archivo actual.
+
+**Configuración de GitHub:** el repositorio informa `has_pages: true`, por lo que existe indicación de funcionalidad Pages, pero **no se pudo confirmar desde esta auditoría la URL, la publicación efectiva, su configuración ni su contenido servido**. Tratar cualquier sitio Pages como público hasta comprobar lo contrario. El alojamiento privado empresarial continúa sin verificar.

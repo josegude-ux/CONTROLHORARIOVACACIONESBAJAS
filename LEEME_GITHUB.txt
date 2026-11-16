@@ -1,11 +1,15 @@
-VERSION DEMO DE CONTROL JORNADA v0.9 - SIN DATOS REALES
+CONTROL JORNADA — DEMO FICTICIA v0.9.0 (2026-10-26)
 
-Sube el contenido de esta carpeta a GitHub Pages para probar la PWA y las actualizaciones.
+Esta es la variante de demostración pública. El data.js revisado contiene 12 empleados ficticios, sin fichajes, marcas ni vacaciones reales. No equivale a una versión empresarial privada ni garantiza la seguridad de archivos históricos.
 
-Esta version contiene 12 trabajadores ficticios, sin fichajes ni marcas de calendario reales. NO subas data.js del Excel real a un repositorio publico.
+ANTES DE PUBLICAR UNA DEMO:
+1. Ejecutar: python scripts/verificar_demo_publica.py
+2. Revisar manualmente todos los archivos y el historial del repositorio; el script solo analiza data.js.
+3. No subir archivos Excel/PDF/CSV/ZIP, datos personales o credenciales laborales, ni sustitutos de data.js con información real.
+4. Revisar los cambios de manifest, version.json, app.js y sw.js si se actualiza la PWA.
 
-En iPhone abre la direccion HTTPS de Pages en Safari y Compartir > Anadir a pantalla de inicio.
+La dirección HTTPS y GitHub Pages NO protegen documentos con información de empleados. No usar la demo para datos reales de jornada, vacaciones o bajas. Para uso empresarial hace falta un entorno privado con autenticación y control de acceso verificados, o una importación local diseñada para conservar datos solo en el dispositivo.
 
-Para probar cambios de version, publica un nuevo version.json y los archivos actualizados. Cambia tambien la version del cache en sw.js y CJ_VERSION en app.js.
+La función PDF es experimental; cada línea necesita revisión humana. Los cálculos oficiales siguen estando en el Excel original.
 
-La funcionalidad de actualizacion no evita que terceros vean archivos publicos; para datos reales se necesita alojamiento privado autenticado o una importacion local que nunca suba los datos al repositorio.
+Más detalles: README.md y docs/SEGURIDAD_DEMO_PUBLICA.md

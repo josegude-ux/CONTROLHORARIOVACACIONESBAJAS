@@ -1,3 +1,8 @@
+AVISO DE CONTINUIDAD (26/10/2026)
+Esta guía describe un paquete local/privado histórico v0.8, NO la demo ficticia v0.9.0 del repositorio público. Las advertencias sobre datos personales corresponden a ese paquete anterior, que no se ha auditado aquí. No publicar el ZIP ni sus datos en GitHub. Para la demo actual consultar LEEME_GITHUB.txt y docs/SEGURIDAD_DEMO_PUBLICA.md.
+
+--- GUÍA HISTÓRICA SIN MODIFICAR ---
+
 CONTROL JORNADA 0.8 — MÓDULO DE IMPORTACIÓN Y REVISIÓN PDF
 
 Ejecuta INICIAR_CONTROL_JORNADA.cmd (Windows). No requiere Python.
